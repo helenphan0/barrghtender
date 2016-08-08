@@ -12,21 +12,26 @@
 
 </head>
 <body>
-
-	<main>
-		<form class="bartender">
-			<p class="question"></p>
-			<ul>
-				<li><input type="radio" name="input" class="question" id="yay" value='1'><label for="yay" id="inputyay"> Aye aye!</label></li>
-				<li><input type="radio" name="input" class="question" id="nay" value='0'><label for="nay" id="inputnay"> Nay!</label></li>
-				<button type="submit" id="submit">Answer</button>
-			</ul>
-		</form>
-	</main>
+		<img src="img/logo.png">
+		<main>
+			<form class="bartender">
+			<h2>Avast, mates! Let me quench yer thirst with a drink!</h2>
+				<p class="question"></p>
+				<ul>
+					<li><input type="radio" name="input" class="question" id="yay" value="1"><label for="yay" id="inputyay"> Aye aye!</label></li>
+					<li><input type="radio" name="input" class="question" id="nay" value="0"><label for="nay" id="inputnay"> Nay!</label></li>
+				</ul>
+				<div class="buttonholder">
+					<button type="submit" id="submit">Answer</button>
+					<button type="button" id="reset">Order Another</button>
+				</div>
+			</form>
+		</main>
 
 	<section class="drinkorder">
+	</section>
 
-
+	<section class="mixing">
 	</section>
 
 	<script src="https://code.jquery.com/jquery.min.js"></script>

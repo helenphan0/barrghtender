@@ -31,6 +31,11 @@ var Pantry = function(pantry) {
 var stockPantry = new Pantry([strongIngr, saltyIngr, bitterIngr, sweetIngr, fruityIngr, spicyIngr]);
 console.log(stockPantry);
 
+var drinkName = {
+	adj1: ['Itty Bitty', 'Monstrous', 'Lip Smackin', 'Hellavuh'],
+	adj2: ['Teeth Rattlin', 'Belly Bustin', 'Fancy Smellin', 'Toe Curling'],
+	noun: ['Poseidon Bringer', 'Sea Dog', 'Shin Breaker', 'Lil Lochness'],
+};
 
 var i = 0;
 var product = Math.floor((Math.random() * 4));
@@ -41,17 +46,20 @@ var Pref = function(preferences) {
 
 var order = new Pref([]);
 
-var mug = ['a wooden jug of questionable rum with', 'a tall flagon of ale with', 'a bejeweled chalice of wine with', 'a replica Indiana Jones holy grail cup of cave water with'];
+var mug = ['a wooden jug of questionable rum', 'a tall flagon of fizzy ale', 'a bejeweled chalice of wine', 'a replica Indiana Jones holy grail cup of cave water'];
 
 function askQ() {
+	$('#reset').hide();
 	if (i < 6) {
 		var q = questionList[i].question;
 		$('p.question').text(q);
-		console.log(stockPantry.pantry[i].ingredient[product]);
 	}
 	else {
 		$('p.question').text("That'll be 15 gold lubbers, mate.");
 		$('ul').hide();
+		$('#submit').hide();
+		$('h2').hide();
+		$('#reset').show();
 		createDrink(order);
 	};
 };
@@ -60,32 +68,65 @@ function mixDrink() {
 	var answer = $('input:checked').val();
 	var y = parseInt(answer);
 	console.log(y);
-	if (y == 1 && i < 6) {
+	if (y === 1 && i < 6) {
 		console.log(ingredients[i]);
+		console.log(stockPantry.pantry[i].ingredient[product]);
 		order.preferences.push(stockPantry.pantry[i].ingredient[product]);
+	}
+	else if (y != 1 && y != 0) {
+		return false
 	};
 	i++;
 	console.log(order);
 };
 
-function createDrink(){
-	var html = '';
-	html += '<p>' + 'You received' + '</p><p>' + mug[product] + '</p><p>' + '</p>';
-	for (var x = 0; x < order.preferences.length; x++) {
-		html += '<p>' + order.preferences[x] + '</p>'
+function mixing() {
+	if ( i === 0 && parseInt($('input:checked').val()) == 1) {
+		$('section.mixing').append('<p>' + 'Mixing yer drink..' + '</p><p>' + ingredients[i] + '</p>');
 	}
-	$('.drinkorder').append(html);
+	else if (i >= 1 && i < 7 && parseInt($('input:checked').val()) == 1) {
+		$('section.mixing').append('<p>' + ingredients[i] + '</p>');
+	};
 };
 
+function createDrink() {
+	var html = '';
+	var concoction = drinkName.adj1[product] + ' ' + drinkName.adj2[product] + ' ' + drinkName.noun[product];
+	html += '<p>' + 'I call this one the..' + '</p><h3>' + concoction + '</h3><p>' + mug[product] + '</p>';
+	if (order.preferences.length > 0) {
+		html += '<p>' + 'with' + '</p>';
+	};
+	for (var x = 0; x < order.preferences.length; x++) {
+		html += '<p>' + order.preferences[x] + '</p>'
+	};
+	$('.drinkorder').append(html);
+	console.log(Pref);
+	console.log(order);
+};
+
+function reset() {
+	$('#reset').click(function() {
+		i = 0;
+		order.preferences = [];
+		$('.drinkorder').empty();
+		$('.mixing').empty();
+		$('#reset').hide();
+		$('ul').show();
+		$('#submit').show();
+		$('h2').show();
+		askQ();
+	});
+};
 
 $(document).ready(function(event) {
+	$('#reset').hide();
 	askQ();
 	$('.bartender').on('click', 'button', function(i) {
 		i.preventDefault();
+		mixing();
 		mixDrink();
 		$('input').prop('checked',false);
 		askQ();
 	});
+	reset();
 });
-
-
