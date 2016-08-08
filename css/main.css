@@ -1,0 +1,43 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+
+}
+
+main, section {
+	width: 400px;
+	margin: auto;
+}
+
+main {
+	height: auto;
+	border: 1px solid grey;
+	margin-top: 20%;
+}
+
+section {
+
+}
+
+button {
+	display: inline-block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+form {
+	padding: 10px;
+}
+
+p {
+	text-align: center;
+}
+
+li {
+	list-style-type: none;
+	padding: 5px;
+
+}
+
