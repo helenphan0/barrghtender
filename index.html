@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Barrghtender</title>
+	<meta charset="utf-8">
+
+	 <!-- Normalize stylesheet -->		
+	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
+
+	<!-- Fonts,  stylesheets -->
+	 <link rel="stylesheet" href="css/main.css"> 
+
+</head>
+<body>
+		<img src="img/logo.png">
+		<main>
+			<form class="bartender">
+			<h2>Avast, mates! Let me quench yer thirst with a drink!</h2>
+				<p class="question"></p>
+				<ul>
+					<li><input type="radio" name="input" class="question" id="yay" value="1"><label for="yay" id="inputyay"> Aye aye!</label></li>
+					<li><input type="radio" name="input" class="question" id="nay" value="0"><label for="nay" id="inputnay"> Nay!</label></li>
+				</ul>
+				<div class="buttonholder">
+					<button type="submit" id="submit">Answer</button>
+					<button type="button" id="reset">Order Another</button>
+				</div>
+			</form>
+		</main>
+
+	<section class="drinkorder">
+	</section>
+
+	<section class="mixing">
+	</section>
+
+	<script src="https://code.jquery.com/jquery.min.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background: #00FFFF url('../img/mug.png') fixed left bottom/300px auto no-repeat;
+	width: 100%;
+	height: 100%;
+}
+
+img {
+	position: fixed;
+	top: 25px;
+	margin-left: 35%;
+	width: 275px;
+}
+
+form {
+	position: relative;
+}
+
+
+main, section.drinkorder {
+	width: 400px;
+	margin: auto;
+	background-color: white;
+	padding: 10px 15px;
+}
+
+main {
+	position: relative;
+	height: auto;
+	top: 160px;
+}
+
+section.drinkorder {
+	position: relative;
+	top: 150px;
+}
+
+button {
+	padding: 10px 15px;
+	border-radius: 2px;
+	background-color: #FFD700;
+	border: none;
+}
+
+button:hover {
+	cursor: pointer;
+	background-color: #CDAD00;
+}
+
+.buttonholder {
+	text-align: center;
+	margin: 15px 0;
+}
+
+.submit, .reset {
+	display: inline-block;
+	padding: 15px;
+	margin: auto;
+}
+
+
+p, h2, h3 {
+	text-align: center;
+}
+
+p {
+	margin-top: 1px;
+	margin-bottom: 1px;
+}
+
+li {
+	list-style-type: none;
+	padding: 5px;
+}
+
+section.mixing {
+	position: fixed;
+	bottom: 300px;
+	width: 200px;
+	margin: 0;
+}
+
